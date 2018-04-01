@@ -1,0 +1,5 @@
+account:
+  email:
+    maximum: 60
+  name:
+    maximum: 20

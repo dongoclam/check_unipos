@@ -13,9 +13,9 @@ development:
 test:
   <<: *default
   database: <%= ENV["DATABASE_NAME"] %>
-  
+
 production:
   <<: *default
   database: dnlblog_production
-  username: dnlblog
-  password: <%= ENV['DNLBLOG_DATABASE_PASSWORD'] %>
+  username: <%= ENV["DATABASE_USERNAME"] %>
+  password: <%= ENV["DATABASE_PASSWORD"] %>
