@@ -1,0 +1,2 @@
+class Unipos < ApplicationRecord
+end
