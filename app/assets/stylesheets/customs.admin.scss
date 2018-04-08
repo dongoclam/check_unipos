@@ -1,0 +1,99 @@
+$white: #FFFFFF;
+$black: #000000;
+$gray: #dce0e0;
+$primary: #9c27b0;
+$warning: #fbc02d;
+$info: #03a9f4;
+$default: #999999;
+$font-color-light: #dce0e0;
+$font-color-dark: #555555;
+$box-shadow-default: 0 1px 10px rgba(0, 0, 0, 0.5);
+$box-shadow-light: 0 1px 5px rgba(0, 0, 0, 0.2);
+
+/*
+*========================@@pagination==========================
+*/
+.pagination a, .pagination span.current, .pagination span.gap {
+  float: left;
+  padding: 0 14px;
+  line-height: 38px;
+  text-decoration: none;
+  background-color: white;
+  border: 1px solid #DDD;
+  border-left-width: 0;
+}
+
+.pagination {
+  border: none;
+  .gap {
+    display: none;
+  }
+
+  .page, .prev, .next, .current, .first, .last {
+    margin: 0px 5px;
+    a {
+      border: none;
+      color: $default;
+      font-weight: 400;
+    }
+  }
+
+  .current {
+    border: none !important;
+    background: $info !important;
+    color: $white;
+    padding: 0px 15px !important;
+    box-shadow: 0 4px 5px 0 rgba(3, 169, 244, 0.14),
+      0 1px 10px 0 rgba(3, 169, 244, 0.12),
+      0 2px 4px -1px rgba(3, 169, 244, 0.2);
+    border-radius: 30px;
+  }
+}
+
+.time-selection {
+  margin-bottom: 100px;
+  .form-group {
+    margin-top: 15px;
+    input {
+      padding-left: 20px;
+      width: 80%;
+    }
+    label {
+      padding-top: 5px;
+    }
+  }
+
+}
+
+#fomr-import{
+  display: none
+}
+.filter{
+  width: 25%;
+  float: right;
+  .form-group{
+    margin: 15px 20px 0 0;
+  }
+}
+
+/*
+*========================@@chatwork==========================
+*/
+.img-table {
+  width: 60px;
+  height: 60px;
+  cursor: pointer;
+}
+
+.load-user-from-chatwork {
+  position: absolute;
+  top: 15px;
+  right: 10px;
+  background: none !important;
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+.td-actions {
+  min-width: 80px;
+}
