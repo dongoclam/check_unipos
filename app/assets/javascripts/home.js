@@ -1,14 +1,16 @@
 $(document).ready(function() {
   $('#btn-send-request').click(function() {
-    var data;
+    chatworkUserNames = [];
 
-    $.ajax({
-      type: 'GET',
-      url: "/load_chatword_user",
-      success: function(data) {
-        console.log(data["data"]);
-      }
-    });
+    // $.ajax({
+    //   type: 'GET',
+    //   url: "/load_chatwork_users",
+    //   success: function(data) {
+    //     console.log(data["data"]);
+    //   }
+    // });
+
+    uniposUsers = [];
 
     header = {
       'content-type': 'application/json',
@@ -16,53 +18,76 @@ $(document).ready(function() {
     };
 
     // Get user by user name
-    data = JSON.stringify(
-      {
-        jsonrpc: '2.0',
-        method: 'Unipos.FindSuggestMembers',
-        params: {
-          term: 'vuong xuan cuong',
-          limit: 30
-        },
-        id: 'Unipos.FindSuggestMembers'
+    function load_unipos_users() {
+      for (var i = 0; i < chatworkUserNames["data"].length; i++) {
+        data = JSON.stringify(
+          {
+            jsonrpc: '2.0',
+            method: 'Unipos.FindSuggestMembers',
+            params: {
+              term: chatworkUserNames["data"][i],
+              limit: 30
+            },
+            id: 'Unipos.FindSuggestMembers'
+          }
+        );
+
+        $.ajax({
+          type: 'POST',
+          url: 'https://unipos.me/q/jsonrpc',
+          headers: header,
+          data: data,
+          dataType: 'json',
+          cache: false,
+          success: function(data) {
+            uniposUsers.push(data);
+          }
+        });
       }
-    );
+      console.log(uniposUsers);
+    }
+
+
 
     $.ajax({
-      type: 'POST',
-      url: 'https://unipos.me/q/jsonrpc',
-      headers: header,
-      data: data,
+      type: 'GET',
+      url: '/load_unipos_users',
       dataType: 'json',
       success: function(data) {
-        $('#result').html(data);
+        chatworkUserNames = data;
+        load_unipos_users();
       }
     });
+
+
+
+
+
 
     // Get all item sent by user
-    data = JSON.stringify(
-      {
-        jsonrpc: '2.0',
-        method: 'Unipos.GetCards2',
-        params: {
-          offset_card_id: '',
-          count: 100,
-          to_member_id: '73375c0d-13ee-4f80-81cb-c6c2b6d1db19'
-        },
-        id: 'Unipos.GetCards2'
-      }
-    );
-
-    $.ajax({
-      type: 'POST',
-      url: 'https://unipos.me/q/jsonrpc',
-      headers: header,
-      data: data,
-      dataType: 'json',
-      success: function(data) {
-        console.log(data);
-      }
-    });
+    // data = JSON.stringify(
+    //   {
+    //     jsonrpc: '2.0',
+    //     method: 'Unipos.GetCards2',
+    //     params: {
+    //       offset_card_id: '',
+    //       count: 100,
+    //       to_member_id: '73375c0d-13ee-4f80-81cb-c6c2b6d1db19'
+    //     },
+    //     id: 'Unipos.GetCards2'
+    //   }
+    // );
+    //
+    // $.ajax({
+    //   type: 'POST',
+    //   url: 'https://unipos.me/q/jsonrpc',
+    //   headers: header,
+    //   data: data,
+    //   dataType: 'json',
+    //   success: function(data) {
+    //     console.log(data);
+    //   }
+    // });
   })
 });
 
