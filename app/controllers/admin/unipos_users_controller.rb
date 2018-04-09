@@ -1,12 +1,25 @@
 class Admin::UniposUsersController < AdminController
-  before_action :load_chatwork_users
+  before_action :load_chatwork_users, only: :load_users_from_unipos
 
   NAME_REGEX = /[\W]*([\w ]+)[\W]*/
   URL = "https://unipos.me/q/jsonrpc"
 
-  def create
+  def index
+    @users = UniposUser.all.page(params[:page]).per Settings.paginate.per_page
+  end
+
+  def show
+    render json: @user
+  end
+
+  def destroy
+    @user.destroy
+  end
+
+  def load_users_from_unipos
     @chatwork_users.each do |name|
-      load_user_from_unipos(name).each do |user|
+      next unless users = load_users_by_name(name)
+      users.each do |user|
         user.save
       end
     end
@@ -14,7 +27,7 @@ class Admin::UniposUsersController < AdminController
 
   private
 
-  def load_user_from_unipos name
+  def load_users_by_name name
     uri = URI.parse URL
     https = Net::HTTP.new uri.host, uri.port
     https.use_ssl = true
@@ -23,15 +36,20 @@ class Admin::UniposUsersController < AdminController
     request["x-unipos-token"] = ENV["X_UNIPOS_TOKEN"]
     request.body = data_header_load_user_by_name name
     response = https.request request
-    users = JSON.parse(response.body)["result"]
+
+    return unless users = JSON.parse(response.body)["result"]
 
     users.map! do |user|
-      UniposUser.new name: user["display_name"], unipos_name: user["uname"],
-        avatar: user["picture_url"], unipos_id: user["id"] }
+      build_user user
     end
   end
 
-  def load_chBaseControlleratwork_users
+  def build_user user
+    UniposUser.new name: user["display_name"], unipos_name: user["uname"],
+      avatar: user["picture_url"], unipos_id: user["id"]
+  end
+
+  def load_chatwork_users
     @chatwork_users = ChatworkUser.all.pluck(:name).map do |name|
       NAME_REGEX.match name
       $1
@@ -50,4 +68,7 @@ class Admin::UniposUsersController < AdminController
     }.to_json
   end
 
+  def load_user
+    @user = UniposUser.find_by id: params[:id]
+  end
 end
