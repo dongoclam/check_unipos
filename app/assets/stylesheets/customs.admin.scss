@@ -85,6 +85,16 @@ $box-shadow-light: 0 1px 5px rgba(0, 0, 0, 0.2);
   cursor: pointer;
 }
 
+.img-sm {
+  width: 60px;
+  height: 60px;
+}
+
+.img-md {
+  width: 150px;
+  height: 150px;
+}
+
 .load-user-from-chatwork, .load-user-from-unipos {
   position: absolute;
   top: 15px;

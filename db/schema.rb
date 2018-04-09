@@ -16,14 +16,15 @@ ActiveRecord::Schema.define(version: 20180406142630) do
     t.string "name"
     t.string "email"
     t.string "avatar"
-    t.integer "account_id"
-    t.string "chatwork_id"
+    t.integer "chatwork_id"
+    t.string "chatwork_name"
     t.string "phone"
     t.string "department"
+    t.boolean "checked", default: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["account_id"], name: "index_chatwork_users_on_account_id", unique: true
-    t.index ["chatwork_id"], name: "index_chatwork_users_on_chatwork_id"
+    t.index ["chatwork_id"], name: "index_chatwork_users_on_chatwork_id", unique: true
+    t.index ["chatwork_name"], name: "index_chatwork_users_on_chatwork_name"
     t.index ["email"], name: "index_chatwork_users_on_email", unique: true
   end
 

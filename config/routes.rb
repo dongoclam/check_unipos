@@ -4,7 +4,6 @@ Rails.application.routes.draw do
   get "/load_unipos_users", to: "home#load_unipos_users"
 
   namespace :admin do
-    root to: "/admin/chatwork_users#index"
     get "/chatwork", to: "/admin/chatwork_users#index"
     get "/chatwork/:id", to: "/admin/chatwork_users#show", as: "show_chatwork_user"
     delete "/chatwork/:id", to: "/admin/chatwork_users#destroy", as: "delete_chatwork_user"
