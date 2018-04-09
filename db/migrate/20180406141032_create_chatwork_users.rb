@@ -14,6 +14,6 @@ class CreateChatworkUsers < ActiveRecord::Migration[5.1]
 
     add_index :chatwork_users, :email, unique: true
     add_index :chatwork_users, :account_id, unique: true
-    add_index :chatwork_users, :chatwork_id, unique: true
+    add_index :chatwork_users, :chatwork_id
   end
 end

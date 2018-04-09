@@ -1,16 +1,24 @@
 development:
   SECRET_KEY_BASE: 282b9c745072749d1804adaa9b083ba4df26278e86304b1768073a22ff6236b68ce8df62c30b5d355724858195639cb25c12d44eb05344779712efcc3bce0ab7
-  DATABASE_NAME: "dnlblog"
-  DATABASE_HOSTNAME: "localhost"
-  DATABASE_USERNAME: "root"
-  DATABASE_PASSWORD: "password"
-  CHATWORK_API_TOKEN: "chatwork_api_token"
-  CHATWORK_ROOM_ID: "room_id"
+  DATABASE_NAME: dnlblog
+  DATABASE_HOSTNAME: localhost
+  DATABASE_USERNAME: root
+  DATABASE_PASSWORD: password
+  EMAIL: lamdo
+  EMAIL_PASSWORD: mylove0210
+  CHATWORK_API_TOKEN: api_token
+  CHATWORK_ROOM_ID: chatwork_room_id
+  X_UNIPOS_API_TOKEN: x_unipos_api_token
+  UNIPOS_API_KEY: unipos_api_key
 test:
   SECRET_KEY_BASE: 282b9c745072749d1804adaa9b083ba4df26278e86304b1768073a22ff6236b68ce8df62c30b5d355724858195639cb25c12d44eb05344779712efcc3bce0ab7
-  DATABASE_NAME: "test_dnlblog"
-  DATABASE_HOSTNAME: "localhost"
-  DATABASE_USERNAME: "root"
-  DATABASE_PASSWORD: "password"
-  CHATWORK_API_TOKEN: "chatwork_api_token"
-  CHATWORK_ROOM_ID: "room_id"
+  DATABASE_NAME: test_dnlblog
+  DATABASE_HOSTNAME: localhost
+  DATABASE_USERNAME: root
+  DATABASE_PASSWORD: password
+  EMAIL: lamdo
+  EMAIL_PASSWORD: mylove0210
+  CHATWORK_API_TOKEN: api_token
+  CHATWORK_ROOM_ID: chatwork_room_id
+  X_UNIPOS_API_TOKEN: x_unipos_api_token
+  UNIPOS_API_KEY: unipos_api_key

@@ -3,3 +3,5 @@ account:
     maximum: 60
   name:
     maximum: 20
+paginate:
+  per_page: 10
