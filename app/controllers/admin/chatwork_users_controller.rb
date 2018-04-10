@@ -23,7 +23,7 @@ class Admin::ChatworkUsersController < AdminController
   private
 
   def load_new_users
-    account_ids = ChatworkUser.all.pluck :account_id
+    account_ids = ChatworkUser.all.pluck :chatwork_id
 
     @new_users = ChatWork::Member.get(room_id: ENV["CHATWORK_ROOM_ID"]).select do |member|
       account_ids.exclude? member.account_id
@@ -36,7 +36,7 @@ class Admin::ChatworkUsersController < AdminController
 
   def build_user user
     ChatworkUser.create name: user.name, avatar: user.avatar_image_url,
-      department: user.department, account_id: user.account_id , chatwork_id: user.chatwork_id
+      department: user.department, chatwork_id: user.account_id , chatwork_name: user.chatwork_id
   end
 
   def load_user
