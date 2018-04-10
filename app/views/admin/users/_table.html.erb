@@ -3,6 +3,7 @@
     <th>ID</th>
     <th>Avatar</th>
     <th>Name</th>
+    <th>Email</th>
     <th>Unipos</th>
     <th>Account</th>
     <th>Actions</th>
@@ -13,6 +14,7 @@
         <td><%= index_for index, params[:page] %></td>
         <td><%= image_tag user.avatar, {class: "rounded-circle img-fluid img-table show-user", user_id: user.id} %></td>
         <td><%= user.name %></td>
+        <td><%= user.email %></td>
         <td><%= user.unipos_id %></td>
         <td><%= user.unipos_name %></td>
         <td class="td-actions text-right">

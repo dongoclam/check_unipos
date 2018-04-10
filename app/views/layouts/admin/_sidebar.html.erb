@@ -4,20 +4,20 @@
   </div>
   <div class="sidebar-wrapper">
     <ul class="nav">
-      <li class="nav-item ">
+      <li class="nav-item  ">
         <a class="nav-link" href="../examples/dashboard.html">
           <i class="material-icons">dashboard</i>
           <p>Dashboard</p>
         </a>
       </li>
-      <li class="nav-item active">
+      <li class="nav-item <%= active_menu admin_chatwork_path %>">
         <%= link_to admin_chatwork_path, {class: "nav-link"} do %>
           <i class="material-icons">person</i>
-          <p>Chatwor User</p>
+          <p>Chatwork User</p>
         <% end %>
       </li>
-      <li class="nav-item">
-        <%= link_to admin_unipos_path, {class: "nav-link"} do %>
+      <li class="nav-item <%= active_menu admin_users_path %>">
+        <%= link_to admin_users_path, {class: "nav-link"} do %>
           <i class="material-icons">person</i>
           <p>Unipos User</p>
         <% end %>
