@@ -19,9 +19,9 @@ $(document).ready(function() {
       type: 'GET',
       url: 'chatwork/' + $(this).attr('user_id'),
       success: function(data) {
-        $('.user-avatar').attr('src', data['avatar']);
-        $('.user-name').html(data['name']);
-        $('.user-department').html(data['department']);
+        $('.user-avatar').attr('src', data.avatar);
+        $('.user-name').html(data.name);
+        $('.user-department').html(data.department);
         $('.user-detail').modal();
       }
     });

@@ -2,16 +2,18 @@ Rails.application.routes.draw do
   root to: "home#index"
   get "/load_chatwork_users", to: "home#load_chatwork_users"
   get "/load_unipos_users", to: "home#load_unipos_users"
+  get "/search", to: "home#search"
 
   namespace :admin do
     get "/chatwork", to: "/admin/chatwork_users#index"
     get "/chatwork/:id", to: "/admin/chatwork_users#show", as: "show_chatwork_user"
     delete "/chatwork/:id", to: "/admin/chatwork_users#destroy", as: "delete_chatwork_user"
-    post "/chatwork", to: "/admin/chatwork_users#load_users_from_chatwork", as: "load_user_from_chatwork"
+    post "/chatwork", to: "/admin/chatwork_users#clone_users_from_chatwork", as: "clone_users_from_chatwork"
 
-    get "/unipos", to: "/admin/unipos_users#index"
-    get "/unipos/:id", to: "/admin/unipos_users#show", as: "show_unipos_user"
-    delete "/unipos/:id", to: "/admin/unipos_users#destroy", as: "delete_unipos_user"
-    post "/unipos", to: "/admin/unipos_users#load_users_from_unipos", as: "load_user_from_unipos"
+    get "/users", to: "/admin/users#index"
+    get "/users/:id", to: "/admin/users#show", as: "show_user"
+    delete "/users/:id", to: "/admin/users#destroy", as: "delete_user"
+    post "/users", to: "/admin/users#clone_users_from_unipos", as: "clone_users_from_unipos"
+    put "/users", to: "/admin/users#update_users_infomation", as: "update_users_infomation"
   end
 end
