@@ -4,7 +4,11 @@ class CreateUniposes < ActiveRecord::Migration[5.1]
       t.integer :sender_id
       t.integer :receiver_id
       t.integer :point
-      t.string :message
+      t.text :message
+      t.string :unipos_id
+      t.integer :reaction
+      t.integer :praise_count
+      t.integer :self_praise_count
       t.datetime :sent_at
 
       t.timestamps
@@ -12,6 +16,6 @@ class CreateUniposes < ActiveRecord::Migration[5.1]
 
     add_index :uniposes, :sender_id
     add_index :uniposes, :receiver_id
-    add_index :uniposes, [:sender_id, :receiver_id, :sent_at], unique: true
+    add_index :uniposes, :unipos_id, unique: true
   end
 end
