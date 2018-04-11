@@ -1,14 +1,43 @@
 .search-form-title {
   color: #777777 !important;
   font-weight: 300;
+  margin: 0px;
 }
 
-.search-input {
-  height: 40px;
+.search-message {
+  color: #dadada;
+}
+.search {
+  background-color: rgba(121,121,121,0.55);
+  border: none;
+  width: 100%;
+  border-radius: 50px;
+  height: 50px;
+  padding: 10px 20px !important;
   font-size: 20px;
   font-weight: 400;
-  padding: 10px !important;
+  color: #ffffff;
   text-align: center;
+}
+
+.btn-search {
+  position: absolute;
+  right: 0px;
+  top: -5px;
+  padding: 0px;
+  width: 48px;
+  height: 48px;
+  text-align: center !important;
+  background: none !important;
+  box-shadow: none !important;
+}
+
+.btn-search i {
+  font-size: 25px !important;
+  color: #dadada;
+}
+
+.search-result-item {
 }
 
 .img-md {

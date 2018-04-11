@@ -8,3 +8,5 @@ paginate:
 unipos:
   request:
     limit: 9999
+search:
+  limit: 8
