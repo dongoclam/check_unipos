@@ -2,7 +2,8 @@ class HomeController < ApplicationController
   def index; end
 
   def search
-    @users = User.search_by_name params[:name]
+    return unless params[:name].present?
+    @users = User.search_by_name(params[:name]).limit Settings.search.limit
     render json: @users
   end
 end
