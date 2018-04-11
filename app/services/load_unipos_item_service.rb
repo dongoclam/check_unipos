@@ -1,0 +1,3 @@
+class LoadUniposItemService
+  
+end

@@ -28,21 +28,6 @@ ActiveRecord::Schema.define(version: 20180406142630) do
     t.index ["email"], name: "index_chatwork_users_on_email", unique: true
   end
 
-  create_table "unipos_users", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.string "name"
-    t.string "avatar"
-    t.string "unipos_id"
-    t.string "unipos_name"
-    t.integer "total_sent"
-    t.integer "total_received"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["total_received"], name: "index_unipos_users_on_total_received"
-    t.index ["total_sent"], name: "index_unipos_users_on_total_sent"
-    t.index ["unipos_id"], name: "index_unipos_users_on_unipos_id", unique: true
-    t.index ["unipos_name"], name: "index_unipos_users_on_unipos_name", unique: true
-  end
-
   create_table "uniposes", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.integer "sender_id"
     t.integer "receiver_id"
@@ -54,6 +39,22 @@ ActiveRecord::Schema.define(version: 20180406142630) do
     t.index ["receiver_id"], name: "index_uniposes_on_receiver_id"
     t.index ["sender_id", "receiver_id", "sent_at"], name: "index_uniposes_on_sender_id_and_receiver_id_and_sent_at", unique: true
     t.index ["sender_id"], name: "index_uniposes_on_sender_id"
+  end
+
+  create_table "users", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string "name"
+    t.string "email"
+    t.string "avatar"
+    t.string "unipos_id"
+    t.string "unipos_name"
+    t.integer "total_sent"
+    t.integer "total_received"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["total_received"], name: "index_users_on_total_received"
+    t.index ["total_sent"], name: "index_users_on_total_sent"
+    t.index ["unipos_id"], name: "index_users_on_unipos_id", unique: true
+    t.index ["unipos_name"], name: "index_users_on_unipos_name", unique: true
   end
 
 end

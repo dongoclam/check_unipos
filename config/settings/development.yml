@@ -5,3 +5,6 @@ account:
     maximum: 20
 paginate:
   per_page: 10
+unipos:
+  request:
+    limit: 9999
