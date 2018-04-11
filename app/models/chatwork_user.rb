@@ -5,4 +5,5 @@ class ChatworkUser < ApplicationRecord
   default_scope {order("checked, created_at DESC")}
   scope :checked, ->{where(checked: :true)}
   scope :not_checked, ->{where(checked: :false)}
+  scope :name_like, ->(name){where("lower(name) LIKE '%#{name}%'")}
 end

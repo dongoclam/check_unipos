@@ -3,4 +3,8 @@ module ApplicationHelper
     page = page.to_i <= 0 ? 1 : page.to_i
     index + Settings.paginate.per_page.to_i * (page - 1) + 1
   end
+
+  def active_menu input_path
+    return "active" if request.path == input_path
+  end
 end

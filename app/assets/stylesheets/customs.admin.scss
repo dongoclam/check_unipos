@@ -50,32 +50,6 @@ $box-shadow-light: 0 1px 5px rgba(0, 0, 0, 0.2);
   }
 }
 
-.time-selection {
-  margin-bottom: 100px;
-  .form-group {
-    margin-top: 15px;
-    input {
-      padding-left: 20px;
-      width: 80%;
-    }
-    label {
-      padding-top: 5px;
-    }
-  }
-
-}
-
-#fomr-import{
-  display: none
-}
-.filter{
-  width: 25%;
-  float: right;
-  .form-group{
-    margin: 15px 20px 0 0;
-  }
-}
-
 /*
 *========================@@chatwork==========================
 */
@@ -95,13 +69,19 @@ $box-shadow-light: 0 1px 5px rgba(0, 0, 0, 0.2);
   height: 150px;
 }
 
-.load-user-from-chatwork, .load-user-from-unipos {
+.load-user-from-chatwork,
+.load-user-from-unipos,
+.update-user-information {
   position: absolute;
   top: 15px;
   right: 10px;
   background: none !important;
   outline: none !important;
   box-shadow: none !important;
+}
+
+.update-user-information {
+  right: 100px;
 }
 
 .td-actions {
