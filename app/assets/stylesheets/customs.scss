@@ -37,10 +37,40 @@
   color: #dadada;
 }
 
-.search-result-item {
+.profile-page .page-header {
+  height: 300px;
+}
+
+.img-profile {
+  width: 160px;
+  height: 160px;
 }
 
 .img-md {
   width: 100px;
   height: 100px;
+}
+
+.point {
+  font-style: normal;
+  font-weight: 300;
+  padding: 10px !important;
+  font-size: 30px !important;
+
+}
+
+.point-received {
+  font-size: 50px !important;
+}
+
+.profile-tabs {
+  margin-top: 30px !important;
+}
+
+.nav-pills .nav-item {
+  min-width: 120px;
+}
+
+.nav-item .nav-link.active i {
+  font-weight: 400;
 }

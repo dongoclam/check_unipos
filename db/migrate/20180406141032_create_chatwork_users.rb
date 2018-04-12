@@ -7,7 +7,7 @@ class CreateChatworkUsers < ActiveRecord::Migration[5.1]
       t.integer :chatwork_id
       t.string :chatwork_name
       t.string :phone
-      t.string :department
+      t.text :department
       t.boolean :checked, default: false
 
       t.timestamps

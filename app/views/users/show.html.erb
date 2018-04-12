@@ -1,0 +1,80 @@
+<div class="profile-page">
+  <div class="page-header header-filter" data-parallax="true" style="background-image: url('/assets/city.jpg');"></div>
+  <div class="main main-raised">
+    <div class="profile-content">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-6 ml-auto mr-auto">
+            <div class="profile">
+              <div class="avatar">
+                <%= image_tag @user_presenter.avatar, {class: "img-raised rounded-circle img-fluid img-profile", alt: @user.name} %>
+              </div>
+              <div class="name">
+                <h3><%= @user_presenter.name %></h3>
+                <h6><%= @user_presenter.unipos_name %></h6>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-8 ml-auto mr-auto">
+          <div class="profile-tabs mt-5">
+            <ul class="nav nav-pills nav-pills-icons justify-content-center" role="tablist">
+              <li class="nav-item">
+                <a class="nav-link" href="#sent" role="tab" data-toggle="tab">
+                  <i class="point"><%= @user_presenter.total_sent %></i>
+                  Sent
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link active" href="#received" role="tab" data-toggle="tab">
+                  <i class="point"><%= @user_presenter.total_received %></i>
+                  Received
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#clapped" role="tab" data-toggle="tab">
+                  <i class="point"><%= @user_presenter.total_clapped %></i>
+                  Clapped
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="tab-content tab-space">
+          <div class="tab-pane text-center gallery" id="sent">
+            <div class="row">
+              <%= area_chart @user_presenter.sent_in_each_day %>
+            </div>
+          </div>
+          <div class="tab-pane text-center gallery active" id="received">
+            <div class="row">
+              <%= area_chart @user_presenter.received_in_each_day %>
+            </div>
+          </div>
+          <div class="tab-pane text-center gallery" id="clapped">
+            <div class="row">
+              <%= area_chart @user_presenter.clapped_in_each_day %>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <footer class="footer ">
+    <div class="container">
+      <nav class="pull-left">
+        <ul>
+          <li>
+            <%= link_to "Home", root_path %>
+          </li>
+          <li>
+            <%= link_to "About Us", "#" %>
+          </li>
+          <li>
+            <%= link_to "GitHub", "#" %>
+          </li>
+        </ul>
+      </nav>
+    </div>
+  </footer>
+</div>

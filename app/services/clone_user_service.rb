@@ -13,7 +13,7 @@ class CloneUserService
   end
 
   def load_new_users
-    unipos_user_ids = Unipos.all.pluck :id
+    unipos_user_ids = User.all.pluck :unipos_id
     LoadUserService.new.perform.select do |user|
       unipos_user_ids.exclude? user["id"]
     end

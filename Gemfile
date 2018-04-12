@@ -20,11 +20,14 @@ gem "chatwork"
 gem "kaminari"
 gem "ransack"
 gem "font-awesome-rails"
+gem "chartkick"
 
 group :development, :test do
   gem "byebug", platforms: [:mri, :mingw, :x64_mingw]
   gem "capybara", "~> 2.13"
   gem "selenium-webdriver"
+  gem "pry-rails"
+  gem "pry"
 end
 
 group :development do

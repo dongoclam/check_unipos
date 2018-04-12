@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   get "/load_chatwork_users", to: "home#load_chatwork_users"
   get "/load_unipos_users", to: "home#load_unipos_users"
   get "/search", to: "home#search"
+  resources :users
 
   namespace :admin do
     get "/chatwork", to: "/admin/chatwork_users#index"

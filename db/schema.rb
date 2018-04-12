@@ -12,14 +12,14 @@
 
 ActiveRecord::Schema.define(version: 20180406142630) do
 
-  create_table "chatwork_users", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+  create_table "chatwork_users", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci" do |t|
     t.string "name"
     t.string "email"
     t.string "avatar"
     t.integer "chatwork_id"
     t.string "chatwork_name"
     t.string "phone"
-    t.string "department"
+    t.text "department"
     t.boolean "checked", default: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -28,20 +28,24 @@ ActiveRecord::Schema.define(version: 20180406142630) do
     t.index ["email"], name: "index_chatwork_users_on_email", unique: true
   end
 
-  create_table "uniposes", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+  create_table "uniposes", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci" do |t|
     t.integer "sender_id"
     t.integer "receiver_id"
     t.integer "point"
-    t.string "message"
+    t.text "message"
+    t.string "unipos_id"
+    t.integer "reaction"
+    t.integer "praise_count"
+    t.integer "self_praise_count"
     t.datetime "sent_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["receiver_id"], name: "index_uniposes_on_receiver_id"
-    t.index ["sender_id", "receiver_id", "sent_at"], name: "index_uniposes_on_sender_id_and_receiver_id_and_sent_at", unique: true
     t.index ["sender_id"], name: "index_uniposes_on_sender_id"
+    t.index ["unipos_id"], name: "index_uniposes_on_unipos_id", unique: true
   end
 
-  create_table "users", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+  create_table "users", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci" do |t|
     t.string "name"
     t.string "email"
     t.string "avatar"
@@ -49,12 +53,14 @@ ActiveRecord::Schema.define(version: 20180406142630) do
     t.string "unipos_name"
     t.integer "total_sent"
     t.integer "total_received"
+    t.integer "total_clapped"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["total_clapped"], name: "index_users_on_total_clapped"
     t.index ["total_received"], name: "index_users_on_total_received"
     t.index ["total_sent"], name: "index_users_on_total_sent"
     t.index ["unipos_id"], name: "index_users_on_unipos_id", unique: true
-    t.index ["unipos_name"], name: "index_users_on_unipos_name", unique: true
+    t.index ["unipos_name"], name: "index_users_on_unipos_name"
   end
 
 end

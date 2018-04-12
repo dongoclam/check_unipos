@@ -1,8 +1,6 @@
 class Admin::UsersController < AdminController
   before_action :load_user, only: %i(show destroy)
 
-  BASE_NAME_REGEX = /([a-z ]+[a-z]{2,})/i
-
   def index
     @users = User.all.page(params[:page]).per Settings.paginate.per_page
   end
