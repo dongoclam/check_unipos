@@ -13,13 +13,19 @@
       <li class="nav-item <%= active_menu admin_users_path %>">
         <%= link_to admin_users_path, {class: "nav-link"} do %>
           <i class="material-icons">person</i>
-          <p>Unipos User</p>
+          <p>Users</p>
         <% end %>
       </li>
       <li class="nav-item <%= active_menu admin_uniposes_path %>">
         <%= link_to admin_uniposes_path, {class: "nav-link"} do %>
           <i class="material-icons">bubble_chart</i>
           <p>Unipos</p>
+        <% end %>
+      </li>
+      <li class="nav-item <%= active_menu admin_settings_path %>">
+        <%= link_to admin_settings_path, {class: "nav-link"} do %>
+          <i class="material-icons">settings</i>
+          <p>Settings</p>
         <% end %>
       </li>
       <li class="nav-item <%= active_menu admin_chatwork_path %>">

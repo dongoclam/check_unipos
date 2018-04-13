@@ -1,0 +1,51 @@
+<div class="modal fade setting-detail" tabindex="-1" role="dialog">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3 class="modal-title">Setting</h3>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="alert alert-message"></div>
+        <div class="container">
+          <form class="form">
+            <div class="row">
+              <div class="col-md-12">
+                <div class="form-group">
+                  <div class="input-group mt-3 pr-3">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text">
+                        <i class="material-icons">code</i>
+                      </span>
+                    </div>
+                    <input type="text" name="setting[key]" class="form-control setting-key" placeholder="Key">
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-12">
+                <div class="form-group mt-4 pr-3">
+                  <div class="input-group">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text">
+                        <i class="material-icons">done</i>
+                      </span>
+                    </div>
+                    <input type="text" name="setting[value]" class="form-control setting-value" placeholder="Value">
+                  </div>
+                </div>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary btn-create-setting">Save</button>
+        <button type="button" class="btn btn-primary btn-update-setting">Save</button>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,14 +1,13 @@
 Rails.application.routes.draw do
   devise_for :admins
   root to: "home#index"
-  get "/load_chatwork_users", to: "home#load_chatwork_users"
-  get "/load_unipos_users", to: "home#load_unipos_users"
   get "/search", to: "home#search"
-  resources :users
+  resources :users, only: :show
 
   namespace :admin do
     root to: "/admin/dashboards#index"
-
+    resources :settings
+    get "/settings", to: "/admin/settings#index"
     resources :uniposes, only: [:index, :show, :destroy]
     post "/uniposes", to: "/admin/uniposes#clone_uniposes", as: "clone_uniposes"
 

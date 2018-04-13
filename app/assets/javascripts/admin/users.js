@@ -37,6 +37,7 @@ $(document).ready(function() {
         $('.user-avatar').attr('src', data.avatar);
         $('.user-name').html(data.name);
         $('.user-account-name').html(data.unipos_name);
+        $('.user-info').attr('href', '/users/' + data.id);
         $('.user-detail').modal();
       }
     });

@@ -11,7 +11,7 @@ class CloneUniposService
     clone_sent_items
     total_sent = @user.sent_uniposes.sum(:point)
     total_received = @user.received_uniposes.sum(:point)
-    total_praise = (@user.received_uniposes + @user.sent_uniposes).pluck(:praise_count).sum
+    total_praise = (@user.sent_uniposes + @user.received_uniposes).pluck(:praise_count).sum
     @user.update_attributes total_sent: total_sent, total_received: (total_received + total_praise), total_clapped: total_praise
   end
 
@@ -31,10 +31,27 @@ class CloneUniposService
       avatar: user["picture_url"], unipos_id: user["id"]
   end
 
+  def validate_unipos unipos
+    return true if @existing_ids.exclude? unipos["id"]
+    return false if update_unipos unipos
+  end
+
+  def update_unipos unipos
+    unipos_params = {
+      message: unipos["message"],
+      point: unipos["point"],
+      reaction: unipos["reaction"],
+      praise_count: unipos["praise_count"],
+      self_praise_count: unipos["self_praise_count"]
+    }
+
+    Unipos.find_by(unipos_id: unipos["id"]).update_attributes unipos_params
+  end
+
   [:sent, :received].each do |type|
     define_method "load_#{type}_items" do
       send_request(send("data_body_#{type}"))["result"].select do |unipos|
-        @existing_ids.exclude? unipos["id"]
+      validate_unipos unipos
       end
     end
 
