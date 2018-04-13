@@ -3,6 +3,7 @@ class Admin::UsersController < AdminController
 
   def index
     @users = User.all.page(params[:page]).per Settings.paginate.per_page
+    @count = User.count
   end
 
   def show

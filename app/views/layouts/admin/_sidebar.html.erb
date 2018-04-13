@@ -1,19 +1,13 @@
 <div class="sidebar" data-color="purple">
   <div class="logo">
-    <%= link_to "DNL UniCheck", admin_chatwork_path, class: "simple-text logo-normal"%>
+    <%= link_to "UniFork", root_path, class: "simple-text logo-normal"%>
   </div>
   <div class="sidebar-wrapper">
     <ul class="nav">
-      <li class="nav-item  ">
-        <a class="nav-link" href="../examples/dashboard.html">
+      <li class="nav-item <%= active_menu admin_root_path  %>">
+        <%= link_to admin_root_path, {class: "nav-link"} do %>
           <i class="material-icons">dashboard</i>
-          <p>Dashboard</p>
-        </a>
-      </li>
-      <li class="nav-item <%= active_menu admin_chatwork_path %>">
-        <%= link_to admin_chatwork_path, {class: "nav-link"} do %>
-          <i class="material-icons">person</i>
-          <p>Chatwork User</p>
+          <p>Dashboards</p>
         <% end %>
       </li>
       <li class="nav-item <%= active_menu admin_users_path %>">
@@ -22,35 +16,17 @@
           <p>Unipos User</p>
         <% end %>
       </li>
-      <li class="nav-item ">
-        <a class="nav-link" href="../examples/typography.html">
-          <i class="material-icons">library_books</i>
-          <p>Typography</p>
-        </a>
-      </li>
-      <li class="nav-item ">
-        <a class="nav-link" href="../examples/icons.html">
+      <li class="nav-item <%= active_menu admin_uniposes_path %>">
+        <%= link_to admin_uniposes_path, {class: "nav-link"} do %>
           <i class="material-icons">bubble_chart</i>
-          <p>Icons</p>
-        </a>
+          <p>Unipos</p>
+        <% end %>
       </li>
-      <li class="nav-item ">
-        <a class="nav-link" href="../examples/maps.html">
-          <i class="material-icons">location_ons</i>
-          <p>Maps</p>
-        </a>
-      </li>
-      <li class="nav-item ">
-        <a class="nav-link" href="../examples/notifications.html">
-          <i class="material-icons">notifications</i>
-          <p>Notifications</p>
-        </a>
-      </li>
-      <li class="nav-item active-pro">
-        <a class="nav-link" href="../examples/upgrade.html">
-          <i class="material-icons">unarchive</i>
-          <p>Upgrade to PRO</p>
-        </a>
+      <li class="nav-item <%= active_menu admin_chatwork_path %>">
+        <%= link_to admin_chatwork_path, {class: "nav-link"} do %>
+          <i class="material-icons">person</i>
+          <p>Chatwork User</p>
+        <% end %>
       </li>
     </ul>
   </div>
