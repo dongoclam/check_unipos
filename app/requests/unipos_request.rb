@@ -7,7 +7,7 @@ module UniposRequest
     https.use_ssl = true
     request = Net::HTTP::Post.new uri.path
     request["content-type"] = "application/json"
-    request["x-unipos-token"] = ENV["X_UNIPOS_TOKEN"]
+    request["x-unipos-token"] = Setting.x_unipos_token
     request.body = data_body
     response = https.request request
 

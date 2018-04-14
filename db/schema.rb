@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180413132855) do
+ActiveRecord::Schema.define(version: 20180414015530) do
 
   create_table "admins", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci" do |t|
     t.string "name", default: "", null: false
@@ -49,6 +49,14 @@ ActiveRecord::Schema.define(version: 20180413132855) do
     t.index ["chatwork_id"], name: "index_chatwork_users_on_chatwork_id", unique: true
     t.index ["chatwork_name"], name: "index_chatwork_users_on_chatwork_name"
     t.index ["email"], name: "index_chatwork_users_on_email", unique: true
+  end
+
+  create_table "settings", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci" do |t|
+    t.string "key"
+    t.string "value"
+    t.string "text"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "uniposes", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci" do |t|

@@ -1,0 +1,26 @@
+<table class="table table-hover">
+  <thead class="text-warning">
+    <th>ID</th>
+    <th>Key</th>
+    <th>Value</th>
+    <th>Action</th>
+  </thead>
+  <tbody>
+    <% @settings.each_with_index do |setting, index| %>
+      <tr>
+        <td><%= index_for index, params[:page] %></td>
+        <td><%= setting.key %></td>
+        <td><%= setting.value %></td>
+        <td>
+          <button type="button" class="btn btn-primary btn-link btn-sm btn-edit-setting" setting_id="<%= setting.id %>">
+            <i class="material-icons">edit</i>
+          </button>
+          <button type="button" class="btn btn-danger btn-link btn-sm btn-delete-setting" setting_id="<%= setting.id %>">
+            <i class="material-icons">close</i>
+          </button>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+<%= paginate @settings, window: 3 %>

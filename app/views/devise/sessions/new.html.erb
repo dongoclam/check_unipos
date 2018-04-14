@@ -9,7 +9,7 @@
             <%= form_for(resource, as: resource_name, url: session_path(resource_name), class: "form") do |f| %>
             <div class="form-group">
               <div class="input-group">
-                <%= f.email_field :email, class: "form-control", placeholder: "Email" %>
+                <%= f.email_field :email, class: "form-control", placeholder: "Email", autofocus: "true" %>
               </div>
             </div>
             <div class="form-group">
@@ -23,11 +23,11 @@
                     <span class="form-check-sign">
                         <span class="check"></span>
                     </span>
-                    I agree to the
+                    Remember me
                 </label>
             </div>
             <div class="text-center">
-              <%= f.submit "Get Started", class: "btn btn-primary btn-round" %>
+              <%= f.submit "Submit", class: "btn btn-primary btn-round" %>
             </div>
           <% end %>
         </div>

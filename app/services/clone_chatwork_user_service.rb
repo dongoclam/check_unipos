@@ -14,7 +14,7 @@ class CloneChatworkUserService
 
   def load_new_users
     account_ids = ChatworkUser.all.pluck :chatwork_id
-    ChatWork::Member.get(room_id: ENV["CHATWORK_ROOM_ID"]).select do |member|
+    ChatWork::Member.get(room_id: Setting.chatwork_room_id).select do |member|
       account_ids.exclude? member.account_id
     end
   end
