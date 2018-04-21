@@ -9,10 +9,11 @@ class CloneUniposService
   def perform
     clone_received_items
     clone_sent_items
+    @user.reload
     total_sent = @user.sent_uniposes.sum(:point)
     total_received = @user.received_uniposes.sum(:point)
-    total_praise = (@user.sent_uniposes + @user.received_uniposes).pluck(:praise_count).sum
-    @user.update_attributes total_sent: total_sent, total_received: (total_received + total_praise), total_clapped: total_praise
+    total_clapped = @user.sent_uniposes.sum(:praise_count) + @user.received_uniposes.sum(:praise_count)
+    @user.update_attributes total_sent: total_sent, total_received: (total_received + total_clapped), total_clapped: total_clapped
   end
 
   [:sent, :received].each do |type|
@@ -27,7 +28,7 @@ class CloneUniposService
   private
 
   def build_user user
-    User.new name: user["display_name"], unipos_name: user["uname"],
+    User.create name: user["display_name"], unipos_name: user["uname"],
       avatar: user["picture_url"], unipos_id: user["id"]
   end
 
@@ -60,11 +61,9 @@ class CloneUniposService
       when :sent
         sender = @user
         receiver = User.find_by(unipos_id: unipos["to_member"]["id"]) || build_user(unipos["to_member"])
-        receiver.save if receiver.new_record?
       when :received
         receiver = @user
         sender = User.find_by(unipos_id: unipos["from_member"]["id"]) || build_user(unipos["from_member"])
-        sender.save if sender.new_record?
       end
 
       sender.sent_uniposes.build receiver: receiver, message: unipos["message"],
