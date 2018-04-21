@@ -18,52 +18,26 @@ class CloneUniposService
 
   [:sent, :received].each do |type|
     define_method "clone_#{type}_items" do
-      return unless result = send("load_#{type}_items")
-      result.each do |unipos|
-        send("build_#{type}_unipos", unipos).save
+      send_request(send("data_body_#{type}")).each do |unipos|
+        if @existing_ids.include? unipos["id"]
+          update_unipos unipos
+        else
+          send("build_#{type}_unipos", unipos).save
+        end
       end
     end
   end
 
   private
 
-  def build_user user
-    User.create name: user["display_name"], unipos_name: user["uname"],
-      avatar: user["picture_url"], unipos_id: user["id"]
-  end
-
-  def validate_unipos unipos
-    return true if @existing_ids.exclude? unipos["id"]
-    return false if update_unipos unipos
-  end
-
-  def update_unipos unipos
-    unipos_params = {
-      message: unipos["message"],
-      point: unipos["point"],
-      reaction: unipos["reaction"],
-      praise_count: unipos["praise_count"],
-      self_praise_count: unipos["self_praise_count"]
-    }
-
-    Unipos.find_by(unipos_id: unipos["id"]).update_attributes unipos_params
-  end
-
   [:sent, :received].each do |type|
-    define_method "load_#{type}_items" do
-      send_request(send("data_body_#{type}")).select do |unipos|
-        validate_unipos unipos
-      end
-    end
-
     define_method "build_#{type}_unipos" do |unipos|
-      case type
-      when :sent
+      if type == :sent
         sender = @user
-        receiver = User.find_by(unipos_id: unipos["to_member"]["id"]) || build_user(unipos["to_member"])
-      when :received
+        receiver = User.find_by(unipos_id: unipos["to_member"]["id"]) || create_user(unipos["to_member"])
+      else
         receiver = @user
-        sender = User.find_by(unipos_id: unipos["from_member"]["id"]) || build_user(unipos["from_member"])
+        sender = User.find_by(unipos_id: unipos["from_member"]["id"]) || create_user(unipos["from_member"])
       end
 
       sender.sent_uniposes.build receiver: receiver, message: unipos["message"],
@@ -85,5 +59,22 @@ class CloneUniposService
         id: "Unipos.GetCards2"
       }.to_json
     end
+  end
+
+  def create_user user
+    User.create name: user["display_name"], unipos_name: user["uname"],
+      avatar: user["picture_url"], unipos_id: user["id"]
+  end
+
+  def update_unipos unipos
+    unipos_params = {
+      message: unipos["message"],
+      point: unipos["point"],
+      reaction: unipos["reaction"],
+      praise_count: unipos["praise_count"],
+      self_praise_count: unipos["self_praise_count"]
+    }
+
+    Unipos.find_by(unipos_id: unipos["id"]).update_attributes unipos_params
   end
 end
