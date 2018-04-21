@@ -50,9 +50,6 @@ Rails.application.configure do
   config.file_watcher = ActiveSupport::EventedFileUpdateChecker
 
   config.action_mailer.raise_delivery_errors = true
-  config.action_mailer.perform_caching = false
-  config.active_support.deprecation = :log
-  config.active_record.migration_error = :page_load
 
   config.action_mailer.delivery_method = :smtp
   host = "localhost:3000"
