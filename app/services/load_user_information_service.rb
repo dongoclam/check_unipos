@@ -6,7 +6,7 @@ class LoadUserInformationService
   end
 
   def perform
-    send_request(data_body)["result"]["member"]
+    send_request(data_body)["member"]
   end
 
   private

@@ -12,7 +12,10 @@
 
 ActiveRecord::Schema.define(version: 20180414015530) do
 
-  create_table "admins", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci" do |t|
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
+  create_table "admins", force: :cascade do |t|
     t.string "name", default: "", null: false
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -35,7 +38,7 @@ ActiveRecord::Schema.define(version: 20180414015530) do
     t.index ["reset_password_token"], name: "index_admins_on_reset_password_token", unique: true
   end
 
-  create_table "chatwork_users", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci" do |t|
+  create_table "chatwork_users", force: :cascade do |t|
     t.string "name"
     t.string "email"
     t.string "avatar"
@@ -51,7 +54,7 @@ ActiveRecord::Schema.define(version: 20180414015530) do
     t.index ["email"], name: "index_chatwork_users_on_email", unique: true
   end
 
-  create_table "settings", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci" do |t|
+  create_table "settings", force: :cascade do |t|
     t.string "key"
     t.string "value"
     t.string "text"
@@ -59,7 +62,7 @@ ActiveRecord::Schema.define(version: 20180414015530) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "uniposes", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci" do |t|
+  create_table "uniposes", force: :cascade do |t|
     t.integer "sender_id"
     t.integer "receiver_id"
     t.integer "point"
@@ -76,7 +79,7 @@ ActiveRecord::Schema.define(version: 20180414015530) do
     t.index ["unipos_id"], name: "index_uniposes_on_unipos_id", unique: true
   end
 
-  create_table "users", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci" do |t|
+  create_table "users", force: :cascade do |t|
     t.string "name"
     t.string "email"
     t.string "avatar"

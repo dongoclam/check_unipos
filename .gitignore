@@ -33,14 +33,14 @@ reek.html
 /test/*
 /db/*.sqlite3
 /public/system/*
-/public/assets/*
+#/public/assets/*
 /coverage/
 /spec/tmp/*
 **.orig
 rerun.txt
 pickle-email-*.html
 .project
-/config/database.yml
+#s/config/database.yml
 /public/uploads
 config/settings.local.yml
 config/settings/*.local.yml
@@ -49,13 +49,13 @@ config/environments/*.local.yml
 /.idea
 app/assets/javascripts/i18n/translations.js
 # Ignore application configuration
-/config/application.yml
+#/config/application.yml
 .docker
 .byebug_history
 dump.rdb
 config/settings.local.yml
 config/settings/*.local.yml
-config/secrets.yml
+#config/secrets.yml
 config/environments/*.local.yml
 lib/assets/imports/*
 /data/*

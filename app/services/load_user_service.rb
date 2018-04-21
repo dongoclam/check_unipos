@@ -8,7 +8,7 @@ class LoadUserService
   end
 
   def perform
-    send_request(data_body)["result"]
+    send_request data_body
   end
 
   private

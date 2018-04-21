@@ -50,8 +50,8 @@ class CloneUniposService
 
   [:sent, :received].each do |type|
     define_method "load_#{type}_items" do
-      send_request(send("data_body_#{type}"))["result"].select do |unipos|
-      validate_unipos unipos
+      send_request(send("data_body_#{type}")).select do |unipos|
+        validate_unipos unipos
       end
     end
 

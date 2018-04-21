@@ -1,16 +1,18 @@
 require_relative 'boot'
 
 require 'rails/all'
+require "net/https"
 
 # Require the gems listed in Gemfile, including any gems
 # you've limited to :test, :development, or :production.
 Bundler.require(*Rails.groups)
 
-module Dnlblog
+module Unifork
   class Application < Rails::Application
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 5.1
-    
+    # config.assets.initialize_on_precompile = true
+
     config.generators do |g|
       g.template_engine false
       g.test_framework false

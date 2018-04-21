@@ -1,5 +1,6 @@
 /*
- *= require_tree ../../../vendor/assets/stylesheets/fonts/.
- *= require_tree ../../../vendor/assets/stylesheets/admin/.
+ *= require_directory ../../../vendor/assets/stylesheets/fonts
+ *= require_directory ../../../vendor/assets/stylesheets/admin
  *= require customs.admin
+ *= require_self
 */

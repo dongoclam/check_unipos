@@ -1,0 +1,30 @@
+<%= form_for [:admin, setting], html: {class: "form"}  do |f| %>
+<div class="row">
+  <div class="col-md-12">
+    <div class="form-group">
+      <div class="input-group mt-3 pr-3">
+        <div class="input-group-prepend">
+          <span class="input-group-text">
+            <i class="material-icons">code</i>
+          </span>
+        </div>
+        <%= f.text_field :key, class: "form-control setting-key", placeholder: "Key", autocomplete: :off %>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="row">
+  <div class="col-md-12">
+    <div class="form-group mt-4 pr-3">
+      <div class="input-group">
+        <div class="input-group-prepend">
+          <span class="input-group-text">
+            <i class="material-icons">done</i>
+          </span>
+        </div>
+        <%= f.text_field :value, class: "form-control setting-value", placeholder: "Value", autocomplete: :off %>
+      </div>
+    </div>
+  </div>
+</div>
+<% end %>

@@ -1,11 +1,10 @@
 default: &default
   adapter: mysql2
-  encoding: utf8
+  encoding: utf8mb4
+  collation: utf8mb4_unicode_ci
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
   username: <%= ENV["DATABASE_USERNAME"] %>
   password: <%= ENV["DATABASE_PASSWORD"] %>
-  encoding: utf8mb4
-  collation: utf8mb4_unicode_ci
   socket: /var/run/mysqld/mysqld.sock
 
 development:
@@ -17,7 +16,8 @@ test:
   database: <%= ENV["DATABASE_NAME"] %>
 
 production:
+  adapter: postgresql
   <<: *default
-  database: dnlblog_production
+  database: <%= ENV["DATABASE_NAME"] %>
   username: <%= ENV["DATABASE_USERNAME"] %>
   password: <%= ENV["DATABASE_PASSWORD"] %>

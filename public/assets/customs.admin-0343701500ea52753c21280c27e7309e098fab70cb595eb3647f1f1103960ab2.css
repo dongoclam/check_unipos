@@ -1,0 +1,87 @@
+/*
+*========================@@pagination==========================
+*/
+/* line 16, /home/lam/unifork/app/assets/stylesheets/customs.admin.scss */
+.pagination a, .pagination span.current, .pagination span.gap {
+  float: left;
+  padding: 0 14px;
+  line-height: 38px;
+  text-decoration: none;
+  background-color: white;
+  border: 1px solid #DDD;
+  border-left-width: 0;
+}
+
+/* line 26, /home/lam/unifork/app/assets/stylesheets/customs.admin.scss */
+.pagination {
+  border: none;
+}
+/* line 28, /home/lam/unifork/app/assets/stylesheets/customs.admin.scss */
+.pagination .gap {
+  display: none;
+}
+/* line 32, /home/lam/unifork/app/assets/stylesheets/customs.admin.scss */
+.pagination .page, .pagination .prev, .pagination .next, .pagination .current, .pagination .first, .pagination .last {
+  margin: 0px 5px;
+}
+/* line 34, /home/lam/unifork/app/assets/stylesheets/customs.admin.scss */
+.pagination .page a, .pagination .prev a, .pagination .next a, .pagination .current a, .pagination .first a, .pagination .last a {
+  border: none;
+  color: #999999;
+  font-weight: 400;
+}
+/* line 41, /home/lam/unifork/app/assets/stylesheets/customs.admin.scss */
+.pagination .current {
+  border: none !important;
+  background: #03a9f4 !important;
+  color: #FFFFFF;
+  padding: 0px 15px !important;
+  box-shadow: 0 4px 5px 0 rgba(3, 169, 244, 0.14), 0 1px 10px 0 rgba(3, 169, 244, 0.12), 0 2px 4px -1px rgba(3, 169, 244, 0.2);
+  border-radius: 30px;
+}
+
+/*
+*========================@@chatwork==========================
+*/
+/* line 56, /home/lam/unifork/app/assets/stylesheets/customs.admin.scss */
+.img-table {
+  width: 60px;
+  height: 60px;
+  cursor: pointer;
+}
+
+/* line 62, /home/lam/unifork/app/assets/stylesheets/customs.admin.scss */
+.img-sm {
+  width: 60px;
+  height: 60px;
+}
+
+/* line 67, /home/lam/unifork/app/assets/stylesheets/customs.admin.scss */
+.img-md {
+  width: 150px;
+  height: 150px;
+}
+
+/* line 72, /home/lam/unifork/app/assets/stylesheets/customs.admin.scss */
+.load-user-from-chatwork,
+.load-user-from-unipos,
+.update-user-information,
+.load-unipos,
+.btn-new-setting {
+  position: absolute;
+  top: 15px;
+  right: 10px;
+  background: none !important;
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+/* line 85, /home/lam/unifork/app/assets/stylesheets/customs.admin.scss */
+.update-user-information {
+  right: 100px;
+}
+
+/* line 89, /home/lam/unifork/app/assets/stylesheets/customs.admin.scss */
+.td-actions {
+  min-width: 80px;
+}

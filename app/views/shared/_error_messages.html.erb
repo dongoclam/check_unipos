@@ -1,0 +1,7 @@
+<% if object.errors.any? %>
+  <div class="alert alert-danger">
+    <span>
+      <%= object.errors.full_messages.first %>
+    </span>
+  </div>
+<% end %>

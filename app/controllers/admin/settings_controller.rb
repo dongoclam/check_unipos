@@ -5,34 +5,54 @@ class Admin::SettingsController < AdminController
     @settings = Setting.all.page(params[:page]).per Settings.paginate.per_page
   end
 
-  def create
-    setting = Setting.new setting_params
+  def new
+    @setting = Setting.new
+    render json: {content: render_to_string(partial: "form", locals: {setting: @setting})}
+  end
 
-    if setting.save
-      render json: {status: "success", setting: setting, message: "Create successfully"}
+  def create
+    @setting = Setting.new setting_params
+
+    if @setting.save
+      render json: {
+        status: "success",
+        content: render_to_string(partial: "setting", locals: {setting: @setting})
+      }
     else
-      render json: {status: "error", message: setting.errors.full_messages.first}
+      render json: {
+        status: "error",
+        message: render_to_string(partial: "shared/error_messages", locals: {object: @setting})
+      }
     end
   end
 
   def edit
-    render json: {status: "error"} and return unless @setting
-    render json: {setting: @setting, status: "success"}
+    render json: {
+      status: "success",
+      content: render_to_string(partial: "form", locals: {setting: @setting})
+    }
   end
 
   def update
     if @setting.update_attributes setting_params
-      render json: {status: "success", message: "Update setting successfully"}
+      render json: {
+        status: "success",
+        setting_id: @setting.id,
+        content: render_to_string(partial: "setting", locals: {setting: @setting})
+      }
     else
-      render json: {status: "error", message: @setting.errors.full_messages.first}
+      render json: {
+        status: "error",
+        message: render_to_string(partial: "shared/error_messages", locals: {object: @setting})
+      }
     end
   end
 
   def destroy
     if @setting.destroy
-      render json: {status: "success", message: "Delete setting successfully"}
+      render json: {status: "success"}
     else
-      render json: {status: "error", message: "Sorry! can't delete"}
+      render json: {status: "error"}
     end
   end
 
