@@ -1,5 +1,5 @@
 class Admin::SettingsController < AdminController
-  before_action :load_setting, onloy: %i(edit update destroy)
+  before_action :load_setting, only: %i(edit update destroy)
 
   def index
     @settings = Setting.all.page(params[:page]).per Settings.paginate.per_page
@@ -56,6 +56,8 @@ class Admin::SettingsController < AdminController
     end
   end
 
+  private
+  
   def load_setting
     @setting = Setting.find_by id: params[:id]
   end

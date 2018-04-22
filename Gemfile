@@ -38,7 +38,6 @@ group :development do
 end
 
 group :production do
-  gem "listen", ">= 3.0.5", "< 3.2"
   gem "rails_12factor"
 end
 

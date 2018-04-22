@@ -8,6 +8,6 @@ class User < ApplicationRecord
   validates :unipos_id, presence: true, uniqueness: true
 
   default_scope {order("created_at DESC")}
-  scope :search_by_name, ->(name){where("lower(name) LIKE '%#{name}%'")}
+  scope :search_by_name, ->(name){where("lower(name) LIKE '%#{name.downcase}%'")}
   scope :no_email, ->{where(email: nil)}
 end

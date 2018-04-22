@@ -42,6 +42,10 @@
   color: #dadada;
 }
 
+.home-page {
+  background-image: asset-url("background.jpg");
+}
+
 .profile-page .page-header {
   height: 300px;
 }
@@ -84,6 +88,9 @@
   background-color: #b94676;
 }
 
+.profile-page .page-header {
+  background-image: asset-url("material.jpg");
+}
 
 /*
 * ======================== @admin ====================================
@@ -95,12 +102,16 @@
   border-radius: 50px !important;
 }
 
-.signup-page .input-group input {
-  background: #04040459 !important;
-  padding: 20px !important;
-  border-radius: 50px !important;
-  color: #d2d2d2 ;
-  font-weight: 400 !important;
+.signup-page {
+  background-image: asset-url("signup.jpg");
+
+  .input-group input {
+    background: #04040459 !important;
+    padding: 20px !important;
+    border-radius: 50px !important;
+    color: #d2d2d2 ;
+    font-weight: 400 !important;
+  }
 }
 
 .remember {
