@@ -9,14 +9,15 @@ $(document).on("keyup", ".search", function() {
 });
 
 function loadUsers(name) {
+  $(".profile").empty().hide();
   var params = { name: name };
   $.ajax({
     type: "GET",
     url: "/search",
     data: params,
     success: function(data) {
-      $(".profile").empty().hide();
       $(".profile").append(data.content).fadeIn(500);;
     }
   });
 }
+;

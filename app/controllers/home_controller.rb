@@ -2,12 +2,13 @@ class HomeController < ApplicationController
   def index; end
 
   def search
-    return unless params[:name].present?
+    return if params[:name].blank?
     @users = User.search_by_name(params[:name]).limit Settings.search.limit
-    if @users.length == 1
-      render js: "window.location = '/users/#{@users.first.id}'" and return
+
+    if @users.present?
+      render json: {content: render_to_string(partial: "user", collection: @users)}
     else
-      render json: @users
+      render json: {content: render_to_string(partial: "message")}
     end
   end
 end

@@ -1,3 +1,17 @@
+.admin-link {
+  position: absolute;
+  right: 20px;
+  top: 20px;
+  opacity: 0;
+  z-index: 99999;
+  background: none !important;
+  box-shadow: none !important;
+  &:hover {
+    opacity: 1;
+    transition: opacity 0.5s;
+  }
+}
+
 .search-form-title {
   color: #777777 !important;
   font-weight: 300;
@@ -7,6 +21,20 @@
 .search-message {
   color: #dadada;
 }
+
+.search-form {
+  padding: 20px;
+}
+
+.user-item {
+  padding: 20px;
+}
+
+.user-item .item {
+  color: #dadada;
+  display: block;
+}
+
 .search {
   background-color: rgba(121,121,121,0.55);
   border: none;
@@ -15,7 +43,6 @@
   height: 50px;
   padding: 10px 20px !important;
   font-size: 20px;
-
   font-weight: 400;
   color: #ffffff;
   text-align: center;
@@ -23,23 +50,6 @@
 
 .search:focus {
   background: rgba(0, 0, 0, 0.22);
-}
-
-.btn-search {
-  position: absolute;
-  right: 0px;
-  top: -5px;
-  padding: 0px;
-  width: 48px;
-  height: 48px;
-  text-align: center !important;
-  background: none !important;
-  box-shadow: none !important;
-}
-
-.btn-search i {
-  font-size: 25px !important;
-  color: #dadada;
 }
 
 .home-page {

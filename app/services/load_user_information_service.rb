@@ -6,7 +6,8 @@ class LoadUserInformationService
   end
 
   def perform
-    send_request(data_body)["member"]
+    result = send_request data_body
+    result["member"] if result.present?
   end
 
   private

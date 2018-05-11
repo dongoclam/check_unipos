@@ -5,18 +5,19 @@ $(document).on("keyup", ".search", function() {
   clearTimeout(typingTimer);
   typingTimer = setTimeout(function() {
     loadUsers(name);
-  }, 500);
+  }, 300);
 });
 
 function loadUsers(name) {
+  $(".profile").empty().hide();
   var params = { name: name };
   $.ajax({
     type: "GET",
     url: "/search",
     data: params,
     success: function(data) {
-      $(".profile").empty().hide();
       $(".profile").append(data.content).fadeIn(500);;
     }
   });
 }
+;

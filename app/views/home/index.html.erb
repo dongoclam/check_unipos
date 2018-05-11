@@ -1,3 +1,6 @@
+<%= link_to admin_root_path, class: "btn btn-primary admin-link" do %>
+  <i class="material-icons">how_to_reg</i> Admin
+<% end %>
 <div class="page-header header-filter home-page">
   <div class="container">
     <div class="row">
@@ -5,14 +8,7 @@
         <div class="search-panel">
           <h2 class="text-center search-form-title">Search</h2>
           <h4 class="text-center description mt-1">Please enter your name bellow</h4>
-          <form>
-            <div class="input-group">
-              <input type="text" class="search ml-auto mr-auto" autofocus>
-              <button class="btn btn-default btn-round btn-search">
-                <i class="material-icons">search</i>
-              </button>
-            </div>
-          </form>
+          <%= render "form" %>
         </div>
       </div>
     </div>

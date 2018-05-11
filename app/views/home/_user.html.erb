@@ -1,0 +1,11 @@
+<div class="col-md-3 text-center user-item">
+  <%= link_to user, class: "item" do %>
+    <div class="avatar">
+      <%= image_tag user.avatar, class: "user-avatar img-raised rounded-circle img-fluid img-md" %>
+    </div>
+    <div class="name">
+      <h4><%= user.name %></h4>
+      <h6 class="user-account-name"><%= user.unipos_name %></h6>
+    </div>
+  <% end %>
+</div>
