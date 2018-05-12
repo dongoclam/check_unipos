@@ -6,9 +6,9 @@
           <div class="card-header card-header-primary">
             <h4 class="card-title">Settings</h4>
             <p class="card-category">All settings for application</p>
-            <button type="button" class="btn btn-primary btn-new-setting">
-              New  <i class="material-icons">border_color</i>
-            </button>
+            <%= button_tag class: "btn btn-primary btn-new-setting" do %>
+              <i class="material-icons">border_color</i> New
+            <% end %>
           </div>
           <div class="card-body table-responsive">
             <%= render "table"%>

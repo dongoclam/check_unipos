@@ -37144,12 +37144,14 @@ module.exports = function(Chart) {
 })));
 var typingTimer;
 
-$(document).on("keyup", ".search", function() {
-  var name = $(this).val();
+$(document).on("keyup", ".search", function(event) {
   clearTimeout(typingTimer);
-  typingTimer = setTimeout(function() {
-    loadUsers(name);
-  }, 500);
+  if(isRealCharacterTyping(event)) {
+    var name = $(this).val();
+    typingTimer = setTimeout(function() {
+      loadUsers(name);
+    }, 500);
+  }
 });
 
 function loadUsers(name) {
@@ -37163,6 +37165,11 @@ function loadUsers(name) {
       $(".profile").append(data.content).fadeIn(500);;
     }
   });
+}
+
+function isRealCharacterTyping(event) {
+  regex = /[a-z ]/i;
+  return regex.test(String.fromCharCode(event.keyCode)) || event.keyCode == 13;
 }
 ;
 
