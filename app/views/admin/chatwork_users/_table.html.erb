@@ -1,11 +1,10 @@
 <table class="table">
-  <thead class="text-primary">
+  <thead class="text-info">
     <th>ID</th>
     <th>Avatar</th>
     <th>Name</th>
     <th>Chatwork</th>
     <th>Department</th>
-    <th>Status</th>
     <th>Actions</th>
   </thead>
   <tbody>
@@ -16,13 +15,6 @@
         <td><%= user.name %></td>
         <td><%= user.chatwork_id %></td>
         <td><%= user.department %></td>
-        <td>
-          <% if user.checked? %>
-            <span class="badge badge-success">checked</span>
-          <% else %>
-            <span class="badge badge-danger">not checked</span>
-          <% end %>
-        </td>
         <td class="td-actions text-right">
           <button type="button" user_id="<%= user.id %>" class="btn btn-info btn-link btn-sm show-user">
             <i class="material-icons">remove_red_eye</i>

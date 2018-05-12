@@ -22,16 +22,16 @@
           <p>Unipos</p>
         <% end %>
       </li>
+      <li class="nav-item <%= active_menu admin_chatwork_path %>">
+        <%= link_to admin_chatwork_path, {class: "nav-link"} do %>
+        <i class="material-icons">person</i>
+        <p>Chatwork</p>
+        <% end %>
+      </li>
       <li class="nav-item <%= active_menu admin_settings_path %>">
         <%= link_to admin_settings_path, {class: "nav-link"} do %>
           <i class="material-icons">settings</i>
           <p>Settings</p>
-        <% end %>
-      </li>
-      <li class="nav-item <%= active_menu admin_chatwork_path %>">
-        <%= link_to admin_chatwork_path, {class: "nav-link"} do %>
-          <i class="material-icons">person</i>
-          <p>Chatwork User</p>
         <% end %>
       </li>
     </ul>
