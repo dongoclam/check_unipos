@@ -18,12 +18,12 @@
         <td><%= user.unipos_id %></td>
         <td><%= user.unipos_name %></td>
         <td class="td-actions text-right">
-          <button type="button" user_id="<%= user.id %>" class="btn btn-info btn-link btn-sm show-user">
+          <%= button_tag class: "btn btn-info btn-link btn-sm show-user", user_id: user.id do %>
             <i class="material-icons">remove_red_eye</i>
-          </button>
-          <button type="button" user_id="<%= user.id %>" class="btn btn-danger btn-link btn-sm btn-delete-user">
+          <% end %>
+          <%= button_tag class: "btn btn-danger btn-link btn-sm btn-delete-user", user_id: user.id do %>
             <i class="material-icons">delete</i>
-          </button>
+          <% end %>
         </td>
       </tr>
     <% end %>
