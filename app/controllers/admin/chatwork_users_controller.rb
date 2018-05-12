@@ -13,10 +13,6 @@ class Admin::ChatworkUsersController < AdminController
     @user.destroy
   end
 
-  def clone_users_from_chatwork
-    CloneChatworkUserService.new.perform
-  end
-
   private
 
   def load_user

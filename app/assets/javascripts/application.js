@@ -3,4 +3,5 @@
 //= require_directory ../../../vendor/assets/javascripts/public
 //= require Chart.bundle
 //= require chartkick
+//= require constants
 //= require home

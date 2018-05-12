@@ -3,9 +3,9 @@
       <div class="card-header card-header-info">
          <h4 class="card-title ">Chatwork Users</h4>
          <p class="card-category">All users are from Framgia HN</p>
-         <button type="button" class="btn btn-primary load-user-from-chatwork">
+         <%= button_tag id: "clone-chatwork-users", class: "btn btn-primary btn-simple" do %>
            <i class="material-icons">cloud_download</i> Clone
-         </button>
+         <% end %>
       </div>
       <div class="card-body">
          <div class="table-responsive">
@@ -15,7 +15,6 @@
    </div>
 </div>
 
-<!-- Modal -->
 <%= render "modal_detail" %>
 <%= render "shared/modal_confirm" %>
 <%= render "shared/modal_loading" %>

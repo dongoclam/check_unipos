@@ -14,18 +14,8 @@ class Admin::UsersController < AdminController
     @user.destroy
   end
 
-  def clone_users_from_unipos
-    CloneUserService.new.perform
-  end
-
-  def update_users_infomation
-    User.no_email.each do |user|
-      UpdateUserInformationService.new(user).perform
-    end
-  end
-
   private
-
+  
   def load_user
     @user = User.find_by id: params[:id]
   end
