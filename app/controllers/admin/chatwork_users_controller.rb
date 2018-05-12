@@ -6,7 +6,7 @@ class Admin::ChatworkUsersController < AdminController
   end
 
   def show
-    render json: @user
+    render json: {content: render_to_string(partial: "chatwork_user", locals: {user: @user})}
   end
 
   def destroy

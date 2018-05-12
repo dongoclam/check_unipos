@@ -1,26 +1,11 @@
 $(document).ready(function() {
-  $("#clone-users").click(function() {
+  $("#clone-unipos").click(function() {
     $(".img-done").attr("src", "").css("display", "none");
     $(".img-loading").attr("src", "/assets/loading.gif").fadeIn(200);
     $(".loading-panel").modal();
     $.ajax({
       type: "GET",
-      url: ADMIN_CLONES_USERS_PATH,
-      success: function() {
-        $(".img-loading").fadeOut(0);
-        $(".img-done").attr("src", "/assets/checkmark.gif").fadeIn(300);
-        setTimeout(function(){$(".loading-panel").modal("toggle"); }, 1800);
-      }
-    });
-  });
-
-  $("#update-users").click(function() {
-    $(".img-done").attr("src", "").css("display", "none");
-    $(".img-loading").attr("src", "/assets/loading.gif").fadeIn(200);
-    $(".loading-panel").modal();
-    $.ajax({
-      type: "GET",
-      url: ADMIN_UPDATES_USERS_PATH,
+      url: ADMIN_CLONES_UNIPOES_PATH,
       success: function() {
         $(".img-loading").fadeOut(0);
         $(".img-done").attr("src", "/assets/checkmark.gif").fadeIn(300);
@@ -34,7 +19,7 @@ $(document).ready(function() {
       type: "GET",
       url: ADMIN_USERS_PATH + $(this).attr("user_id"),
       success: function(data) {
-        $(".modal-body").html(data.content);
+        $(".profile").html(data.content);
         $(".modal-detail").modal();
       }
     });

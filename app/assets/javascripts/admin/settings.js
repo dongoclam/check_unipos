@@ -31,7 +31,7 @@ $(document).ready(function() {
           }
           $(".modal-form").modal("toggle");
         } else {
-          $(".message").html(data.message);
+          $(".modal-body").prepend(data.message);
           setTimeout(function() {
             $(".message .alert").fadeOut(500)
           }, 2000);

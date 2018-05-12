@@ -7,7 +7,7 @@ class Admin::UsersController < AdminController
   end
 
   def show
-    render json: @user
+    render json: {content: render_to_string(partial: "user", locals: {user: @user})}
   end
 
   def destroy
@@ -15,7 +15,7 @@ class Admin::UsersController < AdminController
   end
 
   private
-  
+
   def load_user
     @user = User.find_by id: params[:id]
   end

@@ -34,7 +34,7 @@ $(document).ready(function() {
       type: "GET",
       url: ADMIN_USERS_PATH + $(this).attr("user_id"),
       success: function(data) {
-        $(".modal-body").html(data.content);
+        $(".profile").html(data.content);
         $(".modal-detail").modal();
       }
     });

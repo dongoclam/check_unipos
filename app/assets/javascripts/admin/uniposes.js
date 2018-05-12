@@ -17,13 +17,10 @@ $(document).ready(function() {
   $(".show-user").click(function() {
     $.ajax({
       type: "GET",
-      url: "users/" + $(this).attr("user_id"),
+      url: ADMIN_USERS_PATH + $(this).attr("user_id"),
       success: function(data) {
-        $(".user-avatar").attr("src", data.avatar);
-        $(".user-name").html(data.name);
-        $(".user-account-name").html(data.unipos_name);
-        $(".user-info").attr("href", "/users/" + data.id);
-        $(".user-detail").modal();
+        $(".modal-body").html(data.content);
+        $(".modal-detail").modal();
       }
     });
   });
@@ -37,7 +34,7 @@ $(document).ready(function() {
     userId = $(this).attr("user_id");
     $.ajax({
       type: "DELETE",
-      url: "users/" + userId,
+      url: ADMIN_USERS_PATH + userId,
       success: function() {
         $("img[user_id=\"" + userId + "\"]").parent().parent().hide("slow");
         $(".modal-confirm").modal("toggle");

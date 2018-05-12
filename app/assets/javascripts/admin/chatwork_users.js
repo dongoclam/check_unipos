@@ -19,10 +19,8 @@ $(document).ready(function() {
       type: "GET",
       url: ADMIN_CHATWORK_USERS_PATH + $(this).attr("user_id"),
       success: function(data) {
-        $(".user-avatar").attr("src", data.avatar);
-        $(".user-name").html(data.name);
-        $(".user-department").html(data.department);
-        $(".user-detail").modal();
+        $(".modal-body").html(data.content);
+        $(".modal-detail").modal();
       }
     });
   });
