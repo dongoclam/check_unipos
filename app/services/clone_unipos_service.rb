@@ -9,11 +9,7 @@ class CloneUniposService
   def perform
     clone_received_items
     clone_sent_items
-    @user.reload
-    total_sent = @user.sent_uniposes.sum(:point)
-    total_received = @user.received_uniposes.sum(:point)
-    total_clapped = @user.sent_uniposes.sum(:praise_count) + @user.received_uniposes.sum(:praise_count)
-    @user.update_attributes total_sent: total_sent, total_received: (total_received + total_clapped), total_clapped: total_clapped
+    update_user
   end
 
   [:sent, :received].each do |type|
@@ -29,6 +25,14 @@ class CloneUniposService
   end
 
   private
+
+  def update_user
+    @user.reload
+    total_sent = @user.sent_uniposes.sum(:point)
+    total_received = @user.received_uniposes.sum(:point)
+    total_clapped = @user.sent_uniposes.sum(:praise_count) + @user.received_uniposes.sum(:praise_count)
+    @user.update_attributes total_sent: total_sent, total_received: (total_received + total_clapped), total_clapped: total_clapped
+  end
 
   [:sent, :received].each do |type|
     define_method "build_#{type}_unipos" do |unipos|

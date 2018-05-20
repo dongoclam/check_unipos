@@ -5,3 +5,4 @@
 //= require chartkick
 //= require constants
 //= require home
+//= require user

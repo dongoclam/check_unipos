@@ -1,0 +1,23 @@
+<div class="content">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="card">
+          <div class="card-header card-header-primary">
+            <h4 class="card-title">Tags</h4>
+            <p class="card-category">All tags for application</p>
+            <%= button_tag id: "new-tag", class: "btn btn-primary btn-simple" do %>
+            <i class="material-icons">border_color</i> New
+            <% end %>
+          </div>
+          <div class="card-body table-responsive">
+            <%= render "table"%>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<%= render "modal" %>
+<%= render "shared/modal_confirm" %>

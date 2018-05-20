@@ -1,0 +1,35 @@
+<div class="tab-content">
+  <% @dashboard.core_values.each do |key, data| %>
+    <%= content_tag :div, class: active_link(key, Tag.first.name, "tab-pane"), id: key do %>
+      <div class="row align-items-center">
+        <% data.each do |user, tagging_time| %>
+          <div class="col m-3 card card-profile">
+            <div class="card-header card-avatar">
+              <%= link_to user do %>
+                <%= image_tag user.avatar, class: "img img-md" %>
+              <% end %>
+            </div>
+            <div class="card-body">
+              <%= content_tag :h6, user.name, class: "card-category text-gray" %>
+              <%= content_tag :h3, tagging_time, class: "card-title" %>
+            </div>
+            <div class="card-footer justify-content-center">
+              <%= content_tag :h5, "#{user.total_sent} | #{user.total_received}", class: "card-description" %>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    <% end %>
+  <% end %>
+</div>
+<div class="card core-value-tab">
+  <div class="card-body">
+    <ul class="nav nav-pills nav-pills-rose justify-content-center">
+      <% @dashboard.tags.each do |tag| %>
+        <li class="nav-item">
+          <%= link_to tag.name, "##{tag.name}", class: active_link(tag.name, Tag.first.name, "nav-link"), data: { toggle: "tab" } %>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+</div>

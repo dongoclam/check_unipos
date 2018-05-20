@@ -1,4 +1,4 @@
-<%= form_for [:admin, setting], html: {class: "form"}  do |f| %>
+<%= form_for [:admin, tag], html: {class: "form"}  do |f| %>
   <div class="row">
     <div class="col-md-12">
       <div class="form-group">
@@ -8,7 +8,7 @@
               <i class="material-icons">code</i>
             </span>
           </div>
-          <%= f.text_field :key, class: "form-control setting-key", placeholder: "Key", autocomplete: :off %>
+          <%= f.text_field :name, class: "form-control tag-name", placeholder: "Name", autocomplete: :off %>
         </div>
       </div>
     </div>
@@ -22,7 +22,7 @@
               <i class="material-icons">done</i>
             </span>
           </div>
-          <%= f.text_field :value, class: "form-control setting-value", placeholder: "Value", autocomplete: :off %>
+          <%= f.text_field :key_name, class: "form-control tag-key-name", placeholder: "Key Name", autocomplete: :off %>
         </div>
       </div>
     </div>

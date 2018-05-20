@@ -7,4 +7,8 @@ module ApplicationHelper
   def active_menu input_path
     return "active" if request.path == input_path
   end
+
+  def active_link value, expected, current_class
+    value == expected ? "#{current_class} active" : current_class
+  end
 end

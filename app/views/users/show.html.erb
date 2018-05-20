@@ -10,8 +10,8 @@
                 <%= image_tag @user_presenter.avatar, {class: "img-raised rounded-circle img-fluid img-profile", alt: @user.name} %>
               </div>
               <div class="name">
-                <h3><%= @user_presenter.name %></h3>
-                <h6><%= @user_presenter.unipos_name %></h6>
+                <%= content_tag :h3, @user_presenter.name %>
+                <%= content_tag :h6, @user_presenter.unipos_name %>
               </div>
             </div>
           </div>
@@ -20,28 +20,28 @@
           <div class="profile-tabs mt-5">
             <ul class="nav nav-pills nav-pills-icons justify-content-center" role="tablist">
               <li class="nav-item">
-                <a class="nav-link" href="#sent" role="tab" data-toggle="tab">
-                  <i class="point"><%= @user_presenter.total_sent %></i>
-                  Sent
-                </a>
+                <%= link_to "#sent", role: "tab", class: "nav-link", data: { toggle: "tab" } do %>
+                  <%= content_tag :i, @user_presenter.total_sent, class: "point" %>
+                  <%= content_tag :span, "Sent" %>
+                <% end %>
               </li>
               <li class="nav-item">
-                <a class="nav-link active" href="#received" role="tab" data-toggle="tab">
-                  <i class="point"><%= @user_presenter.total_received %></i>
-                  Received
-                </a>
+                <%= link_to "#received", role: "tab", class: "nav-link active", data: { toggle: "tab" } do %>
+                  <%= content_tag :i, @user_presenter.total_received, class: "point" %>
+                  <%= content_tag :span, "Received" %>
+                <% end %>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="#clapped" role="tab" data-toggle="tab">
-                  <i class="point"><%= @user_presenter.total_clapped %></i>
-                  Clapped
-                </a>
+                <%= link_to "#clapped", role: "tab", class: "nav-link", data: { toggle: "tab" } do %>
+                  <%= content_tag :i, @user_presenter.total_clapped, class: "point" %>
+                  <%= content_tag :span, "Clapped" %>
+                <% end %>
               </li>
             </ul>
           </div>
         </div>
-        <div class="tab-content tab-space">
-          <div class="tab-pane text-center gallery" id="sent">
+        <div class="tab-content tab-space invisible">
+          <div class="tab-pane text-center gallery active" id="sent">
             <div class="row">
               <%= area_chart @user_presenter.sent_in_each_day %>
             </div>
@@ -51,7 +51,7 @@
               <%= area_chart @user_presenter.received_in_each_day %>
             </div>
           </div>
-          <div class="tab-pane text-center gallery" id="clapped">
+          <div class="tab-pane text-center gallery active" id="clapped">
             <div class="row">
               <%= area_chart @user_presenter.clapped_in_each_day %>
             </div>

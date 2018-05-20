@@ -1,20 +1,28 @@
 <div class="container">
   <div class="row">
-    <div class="col-md-12">
-      <%= column_chart @dashboard.top_received%>
+    <div class="col">
+      <%= render "core_value" %>
     </div>
   </div>
+
   <div class="row">
-    <div class="col-md-12">
-      <%= area_chart @dashboard.sent_in_day %>
+    <div class="col">
+      <%= render "top_received" %>
     </div>
   </div>
+
   <div class="row">
-    <div class="col-md-9">
-      <%= scatter_chart @dashboard.sent_time_with_point %>
+    <div class="col">
+      <%= render "sent_in_day" %>
     </div>
-    <div class="col-md-3">
-      <%= pie_chart @dashboard.sent_and_clapped %>
+  </div>
+
+  <div class="row">
+    <div class="col-md-8">
+      <%= render "sent_time_with_point" %>
+    </div>
+    <div class="col-md-4">
+      <%= render "sent_and_clapped" %>
     </div>
   </div>
 </div>

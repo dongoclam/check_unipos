@@ -13,3 +13,4 @@ const ADMIN_NEW_SETTING_PATH = "/admin/settings/new"
 
 const ADMIN_TAGS_PATH = "/admin/tags/"
 const ADMIN_NEW_TAG_PATH = "/admin/tags/new"
+;

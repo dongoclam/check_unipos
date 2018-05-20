@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   namespace :admin do
     root to: "/admin/dashboards#index"
     resources :settings
+    resources :tags
     resources :users, only: [:index, :show, :destroy]
     resources :uniposes, only: [:index, :show, :destroy]
     resources :chatwork_users, only: [:index, :show, :destroy]

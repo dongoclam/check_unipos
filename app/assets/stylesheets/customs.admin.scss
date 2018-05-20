@@ -50,9 +50,15 @@ $box-shadow-light: 0 1px 5px rgba(0, 0, 0, 0.2);
   }
 }
 
-/*
-*========================@@chatwork==========================
-*/
+.core-value-tab {
+  .card-body {
+    .nav .nav-link {
+      font-size: 11px;
+      padding: 8px;
+    }
+  }
+}
+
 .img-table {
   width: 60px;
   height: 60px;
@@ -66,13 +72,8 @@ $box-shadow-light: 0 1px 5px rgba(0, 0, 0, 0.2);
 
 .img-md {
   width: 150px;
-  height: 150px;
+  height: 150px !important;
 }
-
-
-.load-user-from-chatwork,
-.load-user-from-unipos,
-.update-user-information {}
 
 .btn-simple {
   position: absolute;

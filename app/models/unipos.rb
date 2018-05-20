@@ -10,4 +10,12 @@ class Unipos < ApplicationRecord
   validates :praise_count, presence: true
   validates :self_praise_count, presence: true
 
+  scope :load_user_with_core_value, ->(start_date, end_date, tag) {
+    where(sent_at: start_date..end_date)
+    .where("message LIKE ?", "%#{tag}%")
+    .group(:receiver_id)
+    .order("count_all DESC")
+    .limit(Settings.unipos.user.top.limit)
+    .count
+  }
 end
